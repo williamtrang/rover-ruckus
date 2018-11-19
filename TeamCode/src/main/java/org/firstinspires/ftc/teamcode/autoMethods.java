@@ -44,7 +44,7 @@ public abstract class autoMethods extends LinearOpMode {
             sleep(1000);
 
             //move
-            encoderDrive(0.2,1.68,1.55);
+            encoderDrive(0.2,1.68,1.68);
             robot.stopMotors();
 
             //slide motor down
