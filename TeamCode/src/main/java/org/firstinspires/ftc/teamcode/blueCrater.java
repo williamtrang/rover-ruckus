@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name = "blue crater tests", group = "test")
@@ -22,7 +21,6 @@ public class blueCrater extends autoMethods {
         lowerRobot();
         //drive into crater
         encoderDrive(0.2,5,5);
-
 
     }
 }

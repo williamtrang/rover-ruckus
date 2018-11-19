@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -19,12 +18,6 @@ public class blueMarkNoCrater extends autoMethods {
 
         waitForStart();
 
-        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-
-        robot.imu = hardwareMap.get(BNO055IMU.class, "imu");
-        robot.imu.initialize(parameters);
-
         lowerRobot();
         //drive to corner
         robot.marker.setPosition(0);
@@ -32,7 +25,6 @@ public class blueMarkNoCrater extends autoMethods {
         turnLeft(45,0.2);
         sleep(1000);
         robot.marker.setPosition(1);
-        //encoderDrive(0.1,-20,-20);
 
     }
 }

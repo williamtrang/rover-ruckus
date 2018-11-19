@@ -30,12 +30,11 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
     //TODO: create turn right method
-
     public void lowerRobot(){
         int TARGET;
         if(opModeIsActive()){
             //slide motor up
-            TARGET=robot.slide.getCurrentPosition()+(int)(robot.COUNTS_PER_MOTOR_REV*9); //9 revolutions to lower
+            TARGET=robot.slide.getCurrentPosition()+4838; //9 revolutions to lower
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.slide.setTargetPosition(TARGET);
             robot.slide.setPower(0.5);
@@ -55,6 +54,7 @@ public abstract class autoMethods extends LinearOpMode {
             robot.slide.setPower(-0.5);
             while(opModeIsActive()&&robot.slide.isBusy()){
             }
+
             robot.stopMotors();
             robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
@@ -62,6 +62,7 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches){
+        //TODO: fix this method
         int LEFT_TARGET,RIGHT_TARGET;
         if(opModeIsActive()){
             LEFT_TARGET=robot.left.getCurrentPosition()+(int)(leftInches*robot.COUNTS_PER_INCH);
@@ -80,9 +81,13 @@ public abstract class autoMethods extends LinearOpMode {
                     (robot.left.isBusy() && robot.right.isBusy())){
 
             }
+
             robot.stopMotors();
             robot.left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
+
+    //TODO: create sampling method
+
 }
