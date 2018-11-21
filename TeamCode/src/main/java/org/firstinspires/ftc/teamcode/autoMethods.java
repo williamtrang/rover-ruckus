@@ -30,6 +30,8 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
     //TODO: create turn right method
+    
+    //lowers robot from lander
     public void lowerRobot(){
         int TARGET;
         if(opModeIsActive()){
@@ -43,24 +45,28 @@ public abstract class autoMethods extends LinearOpMode {
             robot.stopMotors();
             sleep(1000);
 
-            //move
-            encoderDrive(0.2,1.68,1.68);
-            robot.stopMotors();
-
-            //slide motor down
-            sleep(1000);
-            TARGET=robot.slide.getCurrentPosition()-(int)(robot.COUNTS_PER_MOTOR_REV*8); //9 revolutions down
-            robot.slide.setTargetPosition(TARGET);
-            robot.slide.setPower(-0.5);
-            while(opModeIsActive()&&robot.slide.isBusy()){
-            }
-
-            robot.stopMotors();
             robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
 
     }
+    
+    //lowers slide
+    public void lowerSlide(){
+        int TARGET;
+        if(opModeIsActive()){
+            robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            sleep(1000);
+            TARGET=robot.slide.getCurrentPosition()-(int)(4301); //8 revolutions down
+            robot.slide.setTargetPosition(TARGET);
+            robot.slide.setPower(-0.5);
+            while(opModeIsActive()&&robot.slide.isBusy()){
+            }
+            robot.stopMotors();
+            robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        }
+    }
 
+    //drive using encoders
     public void encoderDrive(double speed, double leftInches, double rightInches){
         //TODO: fix this method
         int LEFT_TARGET,RIGHT_TARGET;
