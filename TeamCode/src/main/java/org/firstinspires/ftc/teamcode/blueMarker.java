@@ -19,9 +19,11 @@ public class blueMarker extends autoMethods {
         waitForStart();
 
         lowerRobot();
-        encoderDrive(0.2,1.55,1.55);
+        encoderDrive(0.2,4,4);
         lowerSlide();
         //drive to corner
+        encoderDrive(0.6,50,50);
+        sleep(1000);
         robot.marker.setPosition(0);
         sleep(1000);
         turnLeft(45,0.2);

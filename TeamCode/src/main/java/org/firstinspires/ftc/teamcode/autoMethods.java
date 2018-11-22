@@ -44,10 +44,8 @@ public abstract class autoMethods extends LinearOpMode {
             }
             robot.stopMotors();
             sleep(1000);
-
             robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
-
     }
     
     //lowers slide
@@ -56,7 +54,7 @@ public abstract class autoMethods extends LinearOpMode {
         if(opModeIsActive()){
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(1000);
-            TARGET=robot.slide.getCurrentPosition()-(int)(4301); //8 revolutions down
+            TARGET=robot.slide.getCurrentPosition()-4301; //8 revolutions down
             robot.slide.setTargetPosition(TARGET);
             robot.slide.setPower(-0.5);
             while(opModeIsActive()&&robot.slide.isBusy()){
@@ -68,7 +66,6 @@ public abstract class autoMethods extends LinearOpMode {
 
     //drive using encoders
     public void encoderDrive(double speed, double leftInches, double rightInches){
-        //TODO: fix this method
         int LEFT_TARGET,RIGHT_TARGET;
         if(opModeIsActive()){
             LEFT_TARGET=robot.left.getCurrentPosition()+(int)(leftInches*robot.COUNTS_PER_INCH);
@@ -94,6 +91,8 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    //TODO: create sampling method
+    public void sample(){
+        //TODO: create sampling method
+    }
 
 }

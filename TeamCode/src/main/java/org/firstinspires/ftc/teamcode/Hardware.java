@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 public class Hardware{
     public DcMotor left,right,slide=null;
     public Servo marker=null;
-    ColorSensor color;
+    //ColorSensor color;
     BNO055IMU imu;
     Orientation angles;
 
@@ -31,7 +31,7 @@ public class Hardware{
         right = hwMap.get(DcMotor.class, "right");
         slide = hwMap.get(DcMotor.class,"slide");
         marker = hwMap.get(Servo.class,"marker");
-        color = hwMap.get(ColorSensor.class,"color");
+        //color = hwMap.get(ColorSensor.class,"color");
         imu = hwMap.get(BNO055IMU.class, "imu");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();

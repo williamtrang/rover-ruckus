@@ -16,8 +16,8 @@ public class slideTest extends OpMode{
     public void start(){}
     @Override
     public void loop(){
-        final double LEFT_POWER = gamepad1.left_stick_y/2.5;
-        final double RIGHT_POWER = gamepad1.right_stick_y/2.5;
+        final double LEFT_POWER = gamepad1.left_stick_y*.8;
+        final double RIGHT_POWER = gamepad1.right_stick_y*.8;
         robot.left.setPower(LEFT_POWER);
         robot.right.setPower(RIGHT_POWER);
 
