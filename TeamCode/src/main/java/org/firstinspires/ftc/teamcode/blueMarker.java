@@ -26,7 +26,7 @@ public class blueMarker extends autoMethods {
         sleep(1000);
         robot.marker.setPosition(0);
         sleep(1000);
-        turnLeft(52,0.8);
+        turnLeft(48,0.8);
         sleep(1000);
         robot.marker.setPosition(0.9);
         sleep(1000);
