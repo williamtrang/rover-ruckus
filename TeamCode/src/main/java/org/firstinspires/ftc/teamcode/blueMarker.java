@@ -31,6 +31,5 @@ public class blueMarker extends autoMethods {
         robot.marker.setPosition(0.9);
         sleep(1000);
         encoderDrive(1,-90,-90);
-        
     }
 }
