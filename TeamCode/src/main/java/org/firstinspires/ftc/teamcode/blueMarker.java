@@ -26,10 +26,15 @@ public class blueMarker extends autoMethods {
         sleep(1000);
         robot.marker.setPosition(0);
         sleep(1000);
-        turnLeft(48,0.8);
+        turnLeft(45,0.5);
         sleep(1000);
         robot.marker.setPosition(0.9);
         sleep(1000);
-        encoderDrive(1,-90,-90);
+
+        robot.left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.left.setPower(-1);
+        robot.right.setPower(-1);
+        sleep(4000);
     }
 }

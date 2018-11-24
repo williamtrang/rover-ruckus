@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name = "blue crater tests", group = "test")
+@Autonomous(name = "blue crater", group = "test")
 public class blueCrater extends autoMethods {
     @Override
     public void runOpMode(){
@@ -20,16 +20,18 @@ public class blueCrater extends autoMethods {
 
         lowerRobot();
         //drive into crater
-        turnLeft(45,0.3);
-        encoderDrive(0.2,-36,-36);
-        turnLeft(80,0.3);
-        encoderDrive(1, -75, -75);
+        encoderDrive(1,12,12);
+        //lowerSlide();
+        sleep(500);
+        turnLeft(42,0.5);
+        encoderDrive(1,36,36);
+        turnLeft(80,0.5);
+        encoderDrive(1, 75, 75);
         robot.marker.setPosition(0);
         sleep(1500);
         robot.marker.setPosition(0.99);
-        turnLeft(10,0.2);
-        encoderDrive(1,80,80);
-
-
+        sleep(600);
+        turnLeft(100,0.5);
+        encoderDrive(1,-84,-84);
     }
 }

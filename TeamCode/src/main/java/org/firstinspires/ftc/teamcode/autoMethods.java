@@ -29,8 +29,22 @@ public abstract class autoMethods extends LinearOpMode {
             }
         }
     }
-    //TODO: create turn right method
-    
+
+    //TODO: test turn right method
+    public void turnRight(final float TARGET_ANGLE, double power){
+        while(opModeIsActive()){
+            float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+            if(currentAngle>=-TARGET_ANGLE){
+                robot.left.setPower(-power);
+                robot.right.setPower(power);
+            }
+            else{
+                robot.stopMotors();
+                break;
+            }
+        }
+    }
+
     //lowers robot from lander
     public void lowerRobot(){
         int TARGET;
@@ -92,7 +106,8 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     public void sample(){
-        //TODO: create sampling method
+        //TODO: create sampling method with color sensor
     }
 
+    //TODO: test sampling method with cv
 }
