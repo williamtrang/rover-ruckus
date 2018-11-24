@@ -26,10 +26,6 @@ public class blueMarkNoCrater extends autoMethods {
         sleep(1000);
         robot.marker.setPosition(0);
         sleep(1000);
-        turnLeft(52,0.8);
-        sleep(1000);
         robot.marker.setPosition(0.9);
-        sleep(1000);
-        encoderDrive(1.1,-90,-90);
     }
 }

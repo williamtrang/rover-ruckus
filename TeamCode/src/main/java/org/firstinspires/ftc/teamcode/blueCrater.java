@@ -23,6 +23,5 @@ public class blueCrater extends autoMethods {
         lowerSlide();
         //drive into crater
         encoderDrive(0.2,5,5);
-
     }
 }
