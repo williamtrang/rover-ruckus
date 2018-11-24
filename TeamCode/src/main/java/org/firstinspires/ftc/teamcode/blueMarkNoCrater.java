@@ -19,10 +19,10 @@ public class blueMarkNoCrater extends autoMethods {
         waitForStart();
 
         lowerRobot();
-        encoderDrive(1.1,4,4);
+        encoderDrive(1,4,4);
         lowerSlide();
         //drive to corner
-        encoderDrive(1.1,62,62);
+        encoderDrive(1,62,62);
         sleep(1000);
         robot.marker.setPosition(0);
         sleep(1000);

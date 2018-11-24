@@ -19,8 +19,11 @@ public class blueCrater extends autoMethods {
         waitForStart();
 
         lowerRobot();
-        encoderDrive(0.2,2,2);
+        encoderDrive(1,12,12);
         lowerSlide();
+        turnLeft(30,0.6);
+        encoderDrive(1,30,30);
+        turnLeft(15,0.6);
         //drive into crater
         encoderDrive(0.2,5,5);
     }
