@@ -18,6 +18,7 @@ public class blueCrater extends autoMethods {
 
         waitForStart();
 
+        //lower robot from lander
         lowerRobot();
         //drive into crater
         encoderDrive(1,12,12);
