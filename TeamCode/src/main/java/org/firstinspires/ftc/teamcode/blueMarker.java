@@ -18,12 +18,14 @@ public class blueMarker extends autoMethods {
 
         waitForStart();
 
+        //lower from lander
         lowerRobot();
         encoderDrive(1,4,4);
         lowerSlide();
         //drive to corner
         encoderDrive(1,62,62);
         sleep(1000);
+        //drop team marker in depot and turn toward crater
         robot.marker.setPosition(0);
         sleep(1000);
         turnLeft(45,0.5);
@@ -31,6 +33,7 @@ public class blueMarker extends autoMethods {
         robot.marker.setPosition(0.9);
         sleep(1000);
 
+        //drive towards crater
         robot.left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.left.setPower(-1);
