@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name="slideTest",group="test2")
 public class slideTest extends OpMode{
     Hardware robot = new Hardware();
-    int count=0;
     public void init() {
         robot.init(hardwareMap);
     }
@@ -21,9 +20,11 @@ public class slideTest extends OpMode{
         robot.left.setPower(LEFT_POWER);
         robot.right.setPower(RIGHT_POWER);
 
-        if(gamepad1.a&&count==0){
+        //open
+        if(gamepad1.a){
             robot.marker.setPosition(0);
         }
+        //closed
         else if(gamepad1.x){
             robot.marker.setPosition(1);
         }

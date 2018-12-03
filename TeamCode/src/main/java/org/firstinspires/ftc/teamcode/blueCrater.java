@@ -18,22 +18,24 @@ public class blueCrater extends autoMethods {
 
         waitForStart();
 
-        //lower robot from lander
+        //lower robot from lander and drive back
         lowerRobot();
-        //drive into crater
         encoderDrive(1,12,12);
         //lowerSlide();
         sleep(500);
+
         //turn towards wall and drive to depot
         turnLeft(42,0.5);
         encoderDrive(1,36,36);
         turnLeft(80,0.5);
         encoderDrive(1, 75, 75);
-        //drop team makrer
-        robot.marker.setPosition(0);
+        
+        //drop team marker
+        robot.marker.setPosition(OPEN);
         sleep(1500);
-        robot.marker.setPosition(0.99);
+        robot.marker.setPosition(CLOSED);
         sleep(600);
+
         //turn and drive to crater
         turnLeft(100,0.5);
         encoderDrive(1,-84,-84);

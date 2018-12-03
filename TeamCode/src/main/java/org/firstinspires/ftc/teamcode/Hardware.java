@@ -17,12 +17,6 @@ public class Hardware{
     BNO055IMU imu;
     Orientation angles;
 
-    static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //neverest 40
-    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ; //1:1
-    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ; //may change
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
-            (WHEEL_DIAMETER_INCHES * Math.PI);
-
     HardwareMap hwMap = null;
 
     public void init(HardwareMap ahwMap){

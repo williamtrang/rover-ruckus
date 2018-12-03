@@ -22,15 +22,17 @@ public class blueMarker extends autoMethods {
         lowerRobot();
         encoderDrive(1,4,4);
         lowerSlide();
+
         //drive to corner
         encoderDrive(1,62,62);
         sleep(1000);
+
         //drop team marker in depot and turn toward crater
-        robot.marker.setPosition(0);
+        robot.marker.setPosition(OPEN);
         sleep(1000);
         turnLeft(45,0.5);
         sleep(1000);
-        robot.marker.setPosition(0.9);
+        robot.marker.setPosition(CLOSED);
         sleep(1000);
 
         //drive towards crater
