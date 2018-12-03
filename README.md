@@ -5,4 +5,4 @@ This is the working repository for *FIRST* Tech Challenge Team *9873 Pikatech*. 
 Because this is the working project, we do not officially support any software in here unless specified. However we still welcome bug reports and feedback on this repository so we can catch bugs!
 
 ## Authors
-@williamtrang (william.trangg@gmail.com) Lead Programmer at FTC Team *9873 Pikatech*
+@williamtrang (william.trangg@gmail.com) Programmer at FTC Team *9873 Pikatech*
