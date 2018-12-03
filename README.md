@@ -6,5 +6,3 @@ Because this is the working project, we do not officially support any software i
 
 ## Authors
 @williamtrang (william.trangg@gmail.com) Programmer at FTC Team *9873 Pikatech*
-
-@waterdud (wujustin1@gmail.com) Programmer at FTC Team *9873 Pikatech*
