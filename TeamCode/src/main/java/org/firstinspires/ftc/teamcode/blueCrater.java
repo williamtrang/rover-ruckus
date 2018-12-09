@@ -37,7 +37,7 @@ public class blueCrater extends autoMethods {
         sleep(600);
 
         //turn and drive to crater
-        turnLeft(100,0.5);
+        turnLeft(130,0.5);
         encoderDrive(1,-84,-84);
     }
 }
