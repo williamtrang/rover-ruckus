@@ -8,6 +8,7 @@ public class slideTest extends OpMode{
     Hardware robot = new Hardware();
     public void init() {
         robot.init(hardwareMap);
+        robot.detector.disable();
     }
     @Override
     public void init_loop(){}

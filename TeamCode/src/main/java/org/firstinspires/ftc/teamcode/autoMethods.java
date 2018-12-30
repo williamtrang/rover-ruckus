@@ -24,6 +24,15 @@ public abstract class autoMethods extends LinearOpMode {
     public void runOpMode(){
     }
 
+    public void setMotorModes(){
+        robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
     //turns left to desired angle
     public void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){

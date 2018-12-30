@@ -8,13 +8,7 @@ public class blueCrater extends autoMethods {
     @Override
     public void runOpMode(){
         robot.init(hardwareMap);
-
-        robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        setMotorModes();
 
         waitForStart();
 
