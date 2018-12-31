@@ -130,9 +130,4 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    public void sample(){
-        //TODO: create sampling method with color sensor
-    }
-
-    //TODO: test sampling method with cv
 }

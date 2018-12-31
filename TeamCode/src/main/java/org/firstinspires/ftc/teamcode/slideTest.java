@@ -8,7 +8,6 @@ public class slideTest extends OpMode{
     Hardware robot = new Hardware();
     public void init() {
         robot.init(hardwareMap);
-        robot.detector.disable();
     }
     @Override
     public void init_loop(){}
@@ -20,6 +19,11 @@ public class slideTest extends OpMode{
         final double RIGHT_POWER = gamepad1.right_stick_y*.8;
         robot.left.setPower(LEFT_POWER);
         robot.right.setPower(RIGHT_POWER);
+
+        final double LEFT_POWER_REVERSE = gamepad2.left_stick_y*.8;
+        final double RIGHT_POWER_REVERSE = gamepad2.right_stick_y*.8;
+        robot.right.setPower(-LEFT_POWER_REVERSE);
+        robot.left.setPower(-RIGHT_POWER_REVERSE);
 
         //open
         if(gamepad1.a){
@@ -38,6 +42,17 @@ public class slideTest extends OpMode{
         }
         else{
             robot.slide.setPower(0);
+        }
+
+
+        if(gamepad2.right_bumper){
+            robot.grab.setPower(0.35);
+        }
+        else if (gamepad2.right_trigger !=0){
+            robot.grab.setPower(-0.35);
+        }
+        else{
+            robot.grab.setPower(0);
         }
     }
     @Override
