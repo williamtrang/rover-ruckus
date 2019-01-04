@@ -4,8 +4,10 @@ import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@Disabled
 @Autonomous(name = "gold found test auto", group = "test")
 public class goldFoundTest3 extends autoMethods{
     private GoldAlignDetector detector = new GoldAlignDetector();
@@ -32,19 +34,20 @@ public class goldFoundTest3 extends autoMethods{
         detector.enable();
         setMotorModes();
 
+        //position 1 is left, 2 is middle, 3 is right
         int POSITION = 0;
 
         waitForStart();
 
         telemetry.addData("POSITION: ",POSITION);
-
-        if(detector.isFound()){
-            POSITION = 2;
+        //gold is right if gold is not seen
+        if(!detector.isFound()){
+            POSITION = 3;
         }
 
         lowerRobot();
         encoderDrive(0.6,20,20);
-
+        //read middle particle to see if it is gold or not
         sleep(1000);
         if(detector.isFound() && !(POSITION==3)){
             POSITION = 2;
@@ -53,19 +56,16 @@ public class goldFoundTest3 extends autoMethods{
             POSITION = 1;
         }
 
-        if(POSITION==0){
-            POSITION = 2;
-        }
 
         lowerSlide();
-
+        //drive differently based on position of mineral
         switch(POSITION){
-            case 1:{
+            case 1:{ //left
                 turnRight(45,0.5);
                 encoderDrive(0.6,20,20);
                 break;
             }
-            case 2:{
+            case 2:{ //middle
                 encoderDrive(0.6,43,43);
                 //drop team marker in depot and turn toward crater
                 robot.marker.setPosition(OPEN);
@@ -83,7 +83,7 @@ public class goldFoundTest3 extends autoMethods{
                 sleep(4000);
                 break;
             }
-            case 3:{
+            case 3:{ //right
                 turnLeft(45,0.5);
                 encoderDrive(0.6,20,20);
                 break;
