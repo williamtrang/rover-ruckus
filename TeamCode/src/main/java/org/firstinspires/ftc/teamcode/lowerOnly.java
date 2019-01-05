@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous (name = "lower robot only", group = "test")
+@Autonomous (name = "lower robot only", group = "pikaReal")
 public class lowerOnly extends autoMethods{
     @Override
     public void runOpMode(){

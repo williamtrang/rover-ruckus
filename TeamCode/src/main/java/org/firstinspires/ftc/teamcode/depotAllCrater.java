@@ -30,15 +30,17 @@ public class depotAllCrater extends autoMethods {
 
         detector.enable();
         setMotorModes();
-        robot.phone.setPosition(.38);
+        robot.phone.setPosition(0.38);
 
         waitForStart();
 
+        //if middle is gold, set position to middle
         sleep(500);
         if(detector.isFound()){
             POSITION = "MIDDLE";
         }
         else{
+            //if middle isn't gold, rotate left and check
             robot.phone.setPosition(0.6);
             sleep(1000);
             if(detector.isFound()){

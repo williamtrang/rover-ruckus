@@ -30,7 +30,7 @@ public class depotOppCrater extends autoMethods {
 
         detector.enable();
         setMotorModes();
-        robot.phone.setPosition(.38);
+        robot.phone.setPosition(0.38);
 
         waitForStart();
 
@@ -40,6 +40,7 @@ public class depotOppCrater extends autoMethods {
             POSITION = "MIDDLE";
         }
         else{
+            //if middle isn't gold, rotate left and check
             robot.phone.setPosition(0.6);
             sleep(1000);
             if(detector.isFound()){
@@ -63,7 +64,7 @@ public class depotOppCrater extends autoMethods {
 
                 //turn and drive to depot
                 turnLeft(35,0.5);
-                encoderDrive(1,24,24);
+                encoderDrive(1,22,22);
 
                 //drop team marker and turn and drive to crater
                 openTail();
@@ -106,8 +107,8 @@ public class depotOppCrater extends autoMethods {
                 sleep(700);
                 closeTail();
                 turnRight(45,0.6);
-                encoderDrive(1,-70,-70);
-                encoderDrive(0.4,-18,-18);
+                encoderDrive(1,-66,-66);
+                encoderDrive(0.4,-12,-12);
                 break;
             }
         }

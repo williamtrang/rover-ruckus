@@ -30,34 +30,49 @@ public class craterNoDepot extends autoMethods {
 
         detector.enable();
         setMotorModes();
+        robot.phone.setPosition(0.38);
 
         waitForStart();
 
+        //if middle if gold, set position to middle
+        sleep(500);
         if(detector.isFound()){
             POSITION = "MIDDLE";
         }
         else{
+            //if middle isn't gold, rotate left and check
             robot.phone.setPosition(0.6);
+            sleep(1000);
             if(detector.isFound()){
-                POSITION = "RIGHT";
+                POSITION = "LEFT";
             }
             else{
-                POSITION = "LEFT";
+                POSITION = "RIGHT";
             }
         }
 
         lowerRobot();
+        encoderDrive(1,4,4);
+        lowerSlide();
+        sleep(300);
+
         switch(POSITION){
             case "LEFT":{
-
+                turnRight(20,0.5);
+                encoderDrive(1,50,50);
+                turnLeft(35,0.5);
+                encoderDrive(0.2,20,20);
                 break;
             }
             case "MIDDLE":{
-
+                encoderDrive(0.2,40,40);
                 break;
             }
             case "RIGHT":{
-
+                turnLeft(25,0.5);
+                encoderDrive(1,50,50);
+                turnRight(35,0.5);
+                encoderDrive(0.2,25,25);
                 break;
             }
         }
