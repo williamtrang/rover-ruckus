@@ -45,15 +45,6 @@ public class slideTest extends OpMode{
         }
 
 
-        if(gamepad2.right_bumper){
-            robot.grab.setPower(0.35);
-        }
-        else if (gamepad2.right_trigger !=0){
-            robot.grab.setPower(-0.35);
-        }
-        else{
-            robot.grab.setPower(0);
-        }
     }
     @Override
     public void stop() {

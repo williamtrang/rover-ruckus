@@ -1,9 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.os.PowerManager;
+
+import com.disnodeteam.dogecv.CameraViewDisplay;
+import com.disnodeteam.dogecv.DogeCV;
+import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -24,6 +30,7 @@ public abstract class autoMethods extends LinearOpMode {
     public void runOpMode(){
     }
 
+    //reset motor encoders and set to run using encoders
     public void setMotorModes(){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -128,6 +135,28 @@ public abstract class autoMethods extends LinearOpMode {
             robot.left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
+    }
+
+    //drive using time (encoders have capped power)
+    public void timeDrive(final double POWER, final long TIME){
+        robot.left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.left.setPower(POWER);
+        robot.right.setPower(POWER);
+        sleep(TIME);
+
+        robot.left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    //opens tail to release marker
+    public void openTail(){
+        robot.marker.setPosition(OPEN);
+    }
+
+    //set tail to closed position
+    public void closeTail(){
+        robot.marker.setPosition(CLOSED);
     }
 
 }

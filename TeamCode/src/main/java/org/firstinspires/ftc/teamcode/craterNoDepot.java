@@ -4,15 +4,13 @@ import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Disabled
-@Autonomous(name = "gold found test auto", group = "test")
-public class goldFoundTest3 extends autoMethods{
+@Autonomous(name = "crater no depot", group = "pikaReal")
+public class craterNoDepot extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
     @Override
     public void runOpMode(){
+        String POSITION;
         robot.init(hardwareMap);
 
         // Set up detector
@@ -33,59 +31,37 @@ public class goldFoundTest3 extends autoMethods{
         detector.enable();
         setMotorModes();
 
-        //position 1 is left, 2 is middle, 3 is right
-        int POSITION = 0;
-
         waitForStart();
 
-        telemetry.addData("POSITION: ",POSITION);
-        //gold is right if gold is not seen
-        if(!detector.isFound()){
-            POSITION = 3;
+        if(detector.isFound()){
+            POSITION = "MIDDLE";
+        }
+        else{
+            robot.phone.setPosition(0.6);
+            if(detector.isFound()){
+                POSITION = "RIGHT";
+            }
+            else{
+                POSITION = "LEFT";
+            }
         }
 
         lowerRobot();
-        encoderDrive(0.6,20,20);
-        //read middle particle to see if it is gold or not
-        sleep(1000);
-        if(detector.isFound() && !(POSITION==3)){
-            POSITION = 2;
-        }
-        else if(!(POSITION==3)){
-            POSITION = 1;
-        }
-
-
-        lowerSlide();
-        //drive differently based on position of mineral
         switch(POSITION){
-            case 1:{ //left
-                turnRight(45,0.5);
-                encoderDrive(0.6,20,20);
-                break;
-            }
-            case 2:{ //middle
-                encoderDrive(0.6,43,43);
-                //drop team marker in depot and turn toward crater
-                robot.marker.setPosition(OPEN);
-                sleep(1000);
-                turnLeft(45,0.5);
-                sleep(1000);
-                robot.marker.setPosition(CLOSED);
-                sleep(1000);
+            case "LEFT":{
 
-                //drive towards crater
-                timeDrive(-1,4000);
                 break;
             }
-            case 3:{ //right
-                turnLeft(45,0.5);
-                encoderDrive(0.6,20,20);
+            case "MIDDLE":{
+
+                break;
+            }
+            case "RIGHT":{
+
                 break;
             }
         }
 
         detector.disable();
-
     }
 }
