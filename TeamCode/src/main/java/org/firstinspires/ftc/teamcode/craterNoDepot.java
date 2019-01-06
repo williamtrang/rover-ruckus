@@ -8,6 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "crater no depot", group = "pikaReal")
 public class craterNoDepot extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
+    private lowerSlide lower = new lowerSlide();
+
     @Override
     public void runOpMode(){
         String POSITION;
@@ -51,32 +53,43 @@ public class craterNoDepot extends autoMethods {
             }
         }
 
+        //lower from lander and lower linear slide
         lowerRobot();
         encoderDrive(1,4,4);
-        lowerSlide();
-        sleep(300);
+        lower.start();
 
+        //drive differently with different position of mineral
         switch(POSITION){
             case "LEFT":{
+                //turn and drive to knock off gold mineral
                 turnRight(20,0.5);
                 encoderDrive(1,50,50);
-                turnLeft(35,0.5);
-                encoderDrive(0.2,20,20);
+
+                //turn and drive to park on crater
+                turnLeft(30,0.5);
+                encoderDrive(0.2,10,10);
                 break;
             }
             case "MIDDLE":{
+                //drive to knock off gold mineral and park on crater
                 encoderDrive(0.2,40,40);
                 break;
             }
             case "RIGHT":{
-                turnLeft(25,0.5);
+                //turn and drive to knock off gold mineral
+                turnLeft(24,0.5);
                 encoderDrive(1,50,50);
-                turnRight(35,0.5);
-                encoderDrive(0.2,25,25);
+
+                //turn and drive to park on crater
+                turnRight(30,0.5);
+                encoderDrive(0.2,10,10);
                 break;
             }
         }
 
+        lower.interrupt();
         detector.disable();
+
     }
+
 }

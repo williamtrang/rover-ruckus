@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "depot all crater", group = "pikaReal")
 public class depotAllCrater extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
+
     @Override
     public void runOpMode(){
         String POSITION;
@@ -56,6 +57,7 @@ public class depotAllCrater extends autoMethods {
         encoderDrive(1,4,4);
         sleep(300);
 
+        //drive differently with different position of mineral
         switch(POSITION){
             case "LEFT":{
                 //turn and drive to knock off gold mineral
@@ -94,7 +96,7 @@ public class depotAllCrater extends autoMethods {
             }
             case "RIGHT":{
                 //turn and drive to knock off gold mineral
-                turnLeft(25,0.5);
+                turnLeft(24,0.5);
                 encoderDrive(1,50,50);
 
                 //turn and drive to depot

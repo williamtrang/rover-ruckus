@@ -52,21 +52,72 @@ public class craterDepot extends autoMethods {
             }
         }
 
+        //lower from lander
         lowerRobot();
         encoderDrive(1,4,4);
         sleep(300);
 
+        //drive differently with different position of mineral
         switch(POSITION){
             case "LEFT":{
+                //turn and drive to knock off gold mineral
+                turnRight(20,0.6);
+                encoderDrive(1,30,30);
+                sleep(500);
+                encoderDrive(1,-11,-11);
 
+                //turn and drive to depot to release team marker
+                turnLeft(83,0.6);
+                encoderDrive(1,95,95);
+                openTail();
+                sleep(700);
+                closeTail();
+
+                //turn and drive to crater
+                turnLeft(130,0.6);
+                encoderDrive(1,-68,-68);
+                encoderDrive(0.4,-12,-12);
                 break;
             }
             case "MIDDLE":{
+                //drive to knock off gold mineral
+                encoderDrive(1,26,26);
+                sleep(500);
+                encoderDrive(1,-10,-10);
 
+                //turn and drive to depot to release team marker
+                turnLeft(74,0.6);
+                encoderDrive(1,50,50);
+                turnLeft(95,0.6);
+                encoderDrive(1,50,50);
+                openTail();
+                sleep(700);
+                closeTail();
+
+                //turn and drive to crater
+                turnLeft(135,0.6);
+                encoderDrive(1,-70,-70);
+                encoderDrive(0.4,-12,-12);
                 break;
             }
             case "RIGHT":{
+                //turn and drive to knock off gold mineral
+                turnLeft(24,0.6);
+                encoderDrive(1,32,32);
+                sleep(200);
+                encoderDrive(1,-4,-4);
 
+                //turn and drive to depot to release team marker
+                turnLeft(100,0.6);
+                encoderDrive(1,75,75);
+                openTail();
+                sleep(700);
+                closeTail();
+
+                //turn and drive to crater
+                turnLeft(130,0.6);
+                encoderDrive(1,-70,-70);
+                encoderDrive(0.4,-2,-2);
                 break;
             }
         }

@@ -8,9 +8,10 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "depot opp crater", group = "pikaReal")
 public class depotOppCrater extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
+
     @Override
     public void runOpMode(){
-        String POSITION="";
+        String POSITION;
         robot.init(hardwareMap);
 
         // Set up detector
@@ -56,21 +57,22 @@ public class depotOppCrater extends autoMethods {
         encoderDrive(1,4,4);
         sleep(300);
 
+        //drive differently with different position of mineral
         switch(POSITION){
             case "LEFT":{
                 //turn and drive to knock off gold mineral
-                turnRight(20,0.5);
+                turnRight(20,0.6);
                 encoderDrive(1,50,50);
 
                 //turn and drive to depot
-                turnLeft(35,0.5);
+                turnLeft(35,0.6);
                 encoderDrive(1,22,22);
 
                 //drop team marker and turn and drive to crater
                 openTail();
                 sleep(700);
                 closeTail();
-                turnLeft(45,0.6);
+                turnRight(60,0.7);
                 encoderDrive(1,-70,-70);
                 encoderDrive(0.4,-18,-18);
                 break;
@@ -94,11 +96,11 @@ public class depotOppCrater extends autoMethods {
             }
             case "RIGHT":{
                 //turn and drive to knock off gold mineral
-                turnLeft(25,0.5);
-                encoderDrive(1,50,50);
+                turnLeft(24,0.5);
+                encoderDrive(1,40,40);
 
                 //turn and drive to depot
-                turnRight(35,0.5);
+                turnRight(32,0.5);
                 encoderDrive(1,25,25);
 
                 /* drop team marker and turn and drive to crater
@@ -108,7 +110,7 @@ public class depotOppCrater extends autoMethods {
                 closeTail();
                 turnRight(45,0.6);
                 encoderDrive(1,-66,-66);
-                encoderDrive(0.4,-12,-12);
+                encoderDrive(0.4,-9,-9);
                 break;
             }
         }

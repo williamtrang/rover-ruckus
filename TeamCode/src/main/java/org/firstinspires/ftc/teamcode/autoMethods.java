@@ -159,4 +159,9 @@ public abstract class autoMethods extends LinearOpMode {
         robot.marker.setPosition(CLOSED);
     }
 
+    class lowerSlide extends Thread{
+        public void run(){
+            lowerSlide();
+        }
+    }
 }
