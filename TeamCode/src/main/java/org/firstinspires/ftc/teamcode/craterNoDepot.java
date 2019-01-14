@@ -56,7 +56,7 @@ public class craterNoDepot extends autoMethods {
         //lower from lander and lower linear slide
         lowerRobot();
         encoderDrive(1,4,4);
-        lower.start();
+        lowerSlide();
 
         //drive differently with different position of mineral
         switch(POSITION){
@@ -67,12 +67,12 @@ public class craterNoDepot extends autoMethods {
 
                 //turn and drive to park on crater
                 turnLeft(30,0.5);
-                encoderDrive(0.2,10,10);
+                encoderDrive(0.2,8,8);
                 break;
             }
             case "MIDDLE":{
                 //drive to knock off gold mineral and park on crater
-                encoderDrive(0.2,40,40);
+                encoderDrive(0.2,65,65);
                 break;
             }
             case "RIGHT":{
@@ -87,7 +87,6 @@ public class craterNoDepot extends autoMethods {
             }
         }
 
-        lower.interrupt();
         detector.disable();
 
     }
