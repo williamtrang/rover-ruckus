@@ -73,8 +73,7 @@ public class depotOppCrater extends autoMethods {
                 sleep(700);
                 closeTail();
                 turnRight(60,0.7);
-                encoderDrive(1,-66,-66);
-                encoderDrive(0.4,-17,-17);
+                encoderDrive(1,-85,-85);
                 break;
             }
             case "MIDDLE":{
@@ -90,8 +89,7 @@ public class depotOppCrater extends autoMethods {
                 sleep(300);
 
                 //drive towards crater
-                encoderDrive(1,-66,-66);
-                encoderDrive(0.4,-14,-14);
+                encoderDrive(1,-84,-84);
                 break;
             }
             case "RIGHT":{
@@ -109,8 +107,7 @@ public class depotOppCrater extends autoMethods {
                 sleep(700);
                 closeTail();
                 turnRight(45,0.6);
-                encoderDrive(1,-62,-62);
-                encoderDrive(0.4,-9,-9);
+                encoderDrive(1,-75,-75);
                 break;
             }
         }

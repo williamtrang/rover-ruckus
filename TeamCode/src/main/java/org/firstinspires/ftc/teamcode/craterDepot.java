@@ -75,8 +75,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(129,0.6);
-                encoderDrive(1,-64,-64);
-                encoderDrive(0.4,-12,-12);
+                encoderDrive(1,-80,-80);
                 break;
             }
             case "MIDDLE":{
@@ -96,8 +95,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(135,0.6);
-                encoderDrive(1,-66,-66);
-                encoderDrive(0.4,-12,-12);
+                encoderDrive(1,-80,-80);
                 break;
             }
             case "RIGHT":{
@@ -116,8 +114,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(130,0.6);
-                encoderDrive(1,-66,-66);
-                encoderDrive(0.4,-2,-2);
+                encoderDrive(1,-70,-70);
                 break;
             }
         }
