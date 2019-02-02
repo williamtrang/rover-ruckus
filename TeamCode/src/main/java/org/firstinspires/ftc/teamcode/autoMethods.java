@@ -75,10 +75,10 @@ public abstract class autoMethods extends LinearOpMode {
         int TARGET;
         if(opModeIsActive()){
             //slide motor up
-            TARGET=robot.slide.getCurrentPosition()+4838; //9 revolutions to lower
+            TARGET=robot.slide.getCurrentPosition()+14514; //9 revolutions to lower
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.slide.setTargetPosition(TARGET);
-            robot.slide.setPower(0.5);
+            robot.slide.setPower(0.8);
             while(opModeIsActive()&&robot.slide.isBusy()){
             }
 
@@ -95,9 +95,9 @@ public abstract class autoMethods extends LinearOpMode {
             //slide motor down
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(1000);
-            TARGET=robot.slide.getCurrentPosition()-4301; //8 revolutions down
+            TARGET=robot.slide.getCurrentPosition()-12903; //8 revolutions down
             robot.slide.setTargetPosition(TARGET);
-            robot.slide.setPower(-0.5);
+            robot.slide.setPower(-0.8);
             while(opModeIsActive()&&robot.slide.isBusy()){
             }
 
@@ -159,7 +159,7 @@ public abstract class autoMethods extends LinearOpMode {
         robot.marker.setPosition(CLOSED);
     }
 
-    class lowerSlide extends Thread{
+    class LowerSlide extends Thread{
         public void run(){
             lowerSlide();
         }

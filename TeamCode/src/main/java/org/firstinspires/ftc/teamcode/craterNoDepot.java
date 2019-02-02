@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "crater no depot", group = "pikaReal")
 public class craterNoDepot extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
-    private lowerSlide lower = new lowerSlide();
+    private LowerSlide lower = new LowerSlide();
 
     @Override
     public void runOpMode(){

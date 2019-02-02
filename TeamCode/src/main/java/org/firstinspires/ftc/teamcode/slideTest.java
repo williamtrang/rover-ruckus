@@ -35,10 +35,10 @@ public class slideTest extends OpMode{
         }
 
         if(gamepad1.right_bumper){ //up
-            robot.slide.setPower(0.6);
+            robot.slide.setPower(0.8);
         }
         else if(gamepad1.right_trigger != 0){ //down
-            robot.slide.setPower(-0.4);
+            robot.slide.setPower(-0.8);
         }
         else{
             robot.slide.setPower(0);

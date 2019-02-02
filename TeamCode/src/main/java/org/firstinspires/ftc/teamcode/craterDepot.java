@@ -75,6 +75,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(129,0.6);
+                timeDrive(-1,1500);
                 encoderDrive(1,-80,-80);
                 break;
             }
@@ -95,6 +96,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(135,0.6);
+                timeDrive(-1,1250);
                 encoderDrive(1,-80,-80);
                 break;
             }
@@ -114,6 +116,7 @@ public class craterDepot extends autoMethods {
 
                 //turn and drive to crater
                 turnLeft(130,0.6);
+                timeDrive(-1,1000);
                 encoderDrive(1,-70,-70);
                 break;
             }
