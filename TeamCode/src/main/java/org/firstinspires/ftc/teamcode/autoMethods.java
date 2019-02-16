@@ -1,15 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.os.PowerManager;
-
-import com.disnodeteam.dogecv.CameraViewDisplay;
-import com.disnodeteam.dogecv.DogeCV;
-import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -19,18 +13,20 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 @Disabled //don't change ever
 public abstract class autoMethods extends LinearOpMode {
     Hardware robot = new Hardware();
-    static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //neverest 40
-    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ; //1:1
-    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ; //may change
+    static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
+    static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;  //1:1
+    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)/
             (WHEEL_DIAMETER_INCHES * Math.PI);
-    final double OPEN = 0;
-    final double CLOSED = 0.99;
+    final double OPEN = 0;      //open position for marker servo
+    final double CLOSED = 0.99; //closed position for marker servo
 
     public void runOpMode(){
     }
 
-    //reset motor encoders and set to run using encoders
+    /**
+     *
+     */
     public void setMotorModes(){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -40,7 +36,11 @@ public abstract class autoMethods extends LinearOpMode {
         robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    //turns left to desired angle
+    /**
+     *
+     * @param TARGET_ANGLE
+     * @param power
+     */
     public void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -55,7 +55,11 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    //turns right to desired angle
+    /**
+     *
+     * @param TARGET_ANGLE
+     * @param power
+     */
     public void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
             float currentAngle = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
@@ -70,12 +74,14 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    //lowers robot from lander
+    /**
+     *
+     */
     public void lowerRobot(){
         int TARGET;
         if(opModeIsActive()){
             //slide motor up
-            TARGET=robot.slide.getCurrentPosition()+14514; //9 revolutions to lower
+            TARGET=robot.slide.getCurrentPosition()+14514;
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.slide.setTargetPosition(TARGET);
             robot.slide.setPower(0.8);
@@ -87,15 +93,16 @@ public abstract class autoMethods extends LinearOpMode {
             robot.slide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
-    
-    //lowers slide
+
+    /**
+     *
+     */
     public void lowerSlide(){
         int TARGET;
         if(opModeIsActive()){
-            //slide motor down
             robot.slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(1000);
-            TARGET=robot.slide.getCurrentPosition()-12903; //8 revolutions down
+            TARGET=robot.slide.getCurrentPosition()-12903;
             robot.slide.setTargetPosition(TARGET);
             robot.slide.setPower(-0.8);
             while(opModeIsActive()&&robot.slide.isBusy()){
@@ -106,7 +113,12 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    //drive using encoders
+    /**
+     *
+     * @param speed
+     * @param leftInches
+     * @param rightInches
+     */
     public void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET,RIGHT_TARGET;
         if(opModeIsActive()){
@@ -137,7 +149,11 @@ public abstract class autoMethods extends LinearOpMode {
         }
     }
 
-    //drive using time (encoders have capped power)
+    /**
+     *
+     * @param POWER
+     * @param TIME
+     */
     public void timeDrive(final double POWER, final long TIME){
         robot.left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -149,12 +165,16 @@ public abstract class autoMethods extends LinearOpMode {
         robot.right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    //opens tail to release marker
+    /**
+     *
+     */
     public void openTail(){
         robot.marker.setPosition(OPEN);
     }
 
-    //set tail to closed position
+    /**
+     *
+     */
     public void closeTail(){
         robot.marker.setPosition(CLOSED);
     }

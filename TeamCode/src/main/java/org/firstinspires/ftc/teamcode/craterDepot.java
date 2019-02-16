@@ -11,7 +11,7 @@ public class craterDepot extends autoMethods {
 
     @Override
     public void runOpMode(){
-        String POSITION;
+        String POSITION; //variable to store position of gold mineral
         robot.init(hardwareMap);
 
         // Set up detector

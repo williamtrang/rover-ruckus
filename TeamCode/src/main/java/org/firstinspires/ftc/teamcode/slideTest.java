@@ -20,18 +20,13 @@ public class slideTest extends OpMode{
         robot.left.setPower(LEFT_POWER);
         robot.right.setPower(RIGHT_POWER);
 
-        final double LEFT_POWER_REVERSE = gamepad2.left_stick_y*.8;
-        final double RIGHT_POWER_REVERSE = gamepad2.right_stick_y*.8;
-        robot.right.setPower(-LEFT_POWER_REVERSE);
-        robot.left.setPower(-RIGHT_POWER_REVERSE);
-
         //open
         if(gamepad1.a){
             robot.marker.setPosition(0);
         }
         //closed
         else if(gamepad1.x){
-            robot.marker.setPosition(1);
+            robot.marker.setPosition(0.99);
         }
 
         if(gamepad1.right_bumper){ //up
@@ -44,7 +39,30 @@ public class slideTest extends OpMode{
             robot.slide.setPower(0);
         }
 
+        /*robot.intakeLeft.setPower(gamepad2.left_stick_y*0.4);
+        robot.intakeRight.setPower(gamepad2.left_stick_y*0.4);
+        if(gamepad2.a){
+            robot.extLeft.setPosition(robot.extLeft.getPosition()-0.1);
+            robot.extRight.setPosition(robot.extRight.getPosition()+0.1);
+        }
+        else if(gamepad2.b){
+            robot.extLeft.setPosition(robot.extLeft.getPosition()+0.1);
+            robot.extRight.setPosition(robot.extRight.getPosition()-0.1);
+        }
+        else{
+            robot.extLeft.setPosition(0.5);
+            robot.extRight.setPosition(0.5);
+        }
 
+        /*if(gamepad1.x){
+            collect.setPosition(collect.getPosition()+0.1);
+        }
+        else if(gamepad1.y){
+            collect.setPosition(collect.getPosition()-0.1);
+        }
+        else{
+            collect.setPosition(0.5);
+        }(*/
     }
     @Override
     public void stop() {
