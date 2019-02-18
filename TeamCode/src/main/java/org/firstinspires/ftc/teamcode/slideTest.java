@@ -39,30 +39,20 @@ public class slideTest extends OpMode{
             robot.slide.setPower(0);
         }
 
-        /*robot.intakeLeft.setPower(gamepad2.left_stick_y*0.4);
-        robot.intakeRight.setPower(gamepad2.left_stick_y*0.4);
-        if(gamepad2.a){
-            robot.extLeft.setPosition(robot.extLeft.getPosition()-0.1);
-            robot.extRight.setPosition(robot.extRight.getPosition()+0.1);
-        }
-        else if(gamepad2.b){
-            robot.extLeft.setPosition(robot.extLeft.getPosition()+0.1);
-            robot.extRight.setPosition(robot.extRight.getPosition()-0.1);
-        }
-        else{
-            robot.extLeft.setPosition(0.5);
-            robot.extRight.setPosition(0.5);
-        }
+        //up and down motor controlled by left joystick
+        robot.dunk.setPower(gamepad2.left_stick_y*0.25);
+        robot.arm.setPower(gamepad2.right_stick_y*0.25);
 
-        /*if(gamepad1.x){
-            collect.setPosition(collect.getPosition()+0.1);
+        //control intake
+        if(gamepad2.left_bumper){ //in
+            robot.collect.setPower(0.5);
         }
-        else if(gamepad1.y){
-            collect.setPosition(collect.getPosition()-0.1);
+        else if(gamepad2.left_trigger!=0){ //out
+            robot.collect.setPower(-0.5);
         }
         else{
-            collect.setPosition(0.5);
-        }(*/
+            robot.collect.setPower(0);
+        }
     }
     @Override
     public void stop() {
