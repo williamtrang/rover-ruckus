@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="slideTest",group="test2")
+@TeleOp(name="arm test",group="pikaReal")
 public class slideTest extends OpMode{
     Hardware robot = new Hardware();
     public void init() {
@@ -40,8 +40,8 @@ public class slideTest extends OpMode{
         }
 
         //up and down motor controlled by left joystick
-        robot.dunk.setPower(gamepad2.left_stick_y*0.25);
-        robot.arm.setPower(gamepad2.right_stick_y*0.25);
+        robot.dunk.setPower(gamepad2.left_stick_y*0.4);
+        robot.arm.setPower(gamepad2.right_stick_y*0.4);
 
         //control intake
         if(gamepad2.left_bumper){ //in
