@@ -13,9 +13,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 public class Hardware{
     public DcMotor left,right = null;             //left and right drivetrain motors
     public DcMotor slide = null;                  //linear slide motor
-    public DcMotor arm = null;                 //motors on intake system to move up and down
-    public DcMotor dunk = null;
-    //public CRServo extLeft, extRight = null;    //servos to extend intake
+    public DcMotor arm = null;                    //motor to control side intake
+    public DcMotor extend = null;                 //motor to extend scoring mechanism
     public Servo marker = null;                   //servo to release marker
     public Servo phone = null;                    //servo to rotate phone
     public CRServo collect = null;                //servo to run intake system
@@ -29,10 +28,7 @@ public class Hardware{
         right = hwMap.get(DcMotor.class, "right");
         slide = hwMap.get(DcMotor.class,"slide");
         arm = hwMap.get(DcMotor.class, "arm");
-        dunk = hwMap.get(DcMotor.class,"dunk");
-        /*intakeRight = hwMap.get(DcMotor.class, "intakeRight");
-        extLeft = hwMap.get(CRServo.class, "extLeft");
-        extRight = hwMap.get(CRServo.class, "extRight");*/
+        extend = hwMap.get(DcMotor.class,"dunk");
         marker = hwMap.get(Servo.class,"marker");
         phone = hwMap.get(Servo.class,"phone");
         collect = hwMap.get(CRServo.class,"collect");
@@ -43,18 +39,19 @@ public class Hardware{
         imu.initialize(parameters);
 
         right.setDirection(DcMotorSimple.Direction.REVERSE);
-        dunk.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        extend.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         stopMotors();
     }
 
     /**
-     *
+     * Stops all movement of motors and continuous rotation servos.
      */
     public void stopMotors(){
         left.setPower(0);
         right.setPower(0);
         slide.setPower(0);
-        dunk.setPower(0);
+        extend.setPower(0);
         arm.setPower(0);
         collect.setPower(0);
     }

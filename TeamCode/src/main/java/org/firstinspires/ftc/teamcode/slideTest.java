@@ -40,15 +40,15 @@ public class slideTest extends OpMode{
         }
 
         //up and down motor controlled by left joystick
-        robot.dunk.setPower(gamepad2.left_stick_y*0.4);
-        robot.arm.setPower(gamepad2.right_stick_y*0.4);
+        robot.arm.setPower(gamepad2.left_stick_y*0.5);
+        robot.extend.setPower(gamepad2.right_stick_y*0.5);
 
         //control intake
         if(gamepad2.left_bumper){ //in
-            robot.collect.setPower(0.5);
+            robot.collect.setPower(0.6);
         }
         else if(gamepad2.left_trigger!=0){ //out
-            robot.collect.setPower(-0.5);
+            robot.collect.setPower(-0.6);
         }
         else{
             robot.collect.setPower(0);

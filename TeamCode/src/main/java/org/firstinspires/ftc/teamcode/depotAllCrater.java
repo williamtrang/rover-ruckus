@@ -4,8 +4,10 @@ import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 @Autonomous(name = "depot all crater", group = "pikaReal")
+@Disabled
 public class depotAllCrater extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
 

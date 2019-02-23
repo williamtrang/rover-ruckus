@@ -10,7 +10,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 
 @Autonomous(name = "never", group = "test")
-@Disabled //don't change ever
+@Disabled
 public abstract class autoMethods extends LinearOpMode {
     Hardware robot = new Hardware();
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ; //Neverest 40
@@ -25,7 +25,7 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
-     *
+     * Resets encoders on motors and sets runmode to run using encoders.
      */
     public void setMotorModes(){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -37,9 +37,13 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
+     * Turns robot left until a desired angle is reached. The angle
+     * parameter specifies the angle to turn to. This is done using
+     * the heading of the REV's integrated inertial measurement unit,
+     * and turning until the right heading is reached.
      *
-     * @param TARGET_ANGLE
-     * @param power
+     * @param TARGET_ANGLE the angle to turn left to
+     * @param power        the power(speed) of the turn
      */
     public void turnLeft(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
@@ -56,9 +60,13 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
+     * Turns robot left until a desired angle is reached. The angle
+     * parameter specifies the angle to turn to. This is done using
+     * the heading of the REV's integrated inertial measurement unit,
+     * and turning until the right heading is reached.
      *
-     * @param TARGET_ANGLE
-     * @param power
+     * @param TARGET_ANGLE the angle to turn right to
+     * @param power        the power(speed) of the turn
      */
     public void turnRight(final float TARGET_ANGLE, double power){
         while(opModeIsActive()){
@@ -75,7 +83,8 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
-     *
+     * Lowers robot from the lander. This uses encocders on the linear slide
+     * motors to move an exact distance from the lander to the ground.
      */
     public void lowerRobot(){
         int TARGET;
@@ -95,7 +104,8 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
-     *
+     * Lowers the robot's linear slide. This uses encocders on the linear slide
+     * motors to move an exact distance from the lander to the ground.
      */
     public void lowerSlide(){
         int TARGET;
@@ -114,10 +124,16 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
+     * Drives using encoders on the drivetrain motors. These encoders are used
+     * to move precise distances during the autonomous period. The inputted
+     * parameters, leftInches and rightInches, are converted to counts by
+     * multiplying them by the counts per inch. These counts are set as the
+     * target position of the motors, then the motors will run until the
+     * target is reached.
      *
-     * @param speed
-     * @param leftInches
-     * @param rightInches
+     * @param speed       speed to run motors until taret position is reached
+     * @param leftInches  inches to drive left motor
+     * @param rightInches inches to drive right motor
      */
     public void encoderDrive(double speed, double leftInches, double rightInches){
         int LEFT_TARGET,RIGHT_TARGET;
@@ -150,9 +166,12 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
+     * Drive using time instead of encoders. This exists because encoders have
+     * a capped speed at around 65% of the motor's power. This method is used
+     * in autonomous programs where running out of time is a possible factor.
      *
-     * @param POWER
-     * @param TIME
+     * @param POWER power to drive motors at until time is reached
+     * @param TIME  time to run motors until they turn off
      */
     public void timeDrive(final double POWER, final long TIME){
         robot.left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -166,14 +185,14 @@ public abstract class autoMethods extends LinearOpMode {
     }
 
     /**
-     *
+     * Opens back tail to release team marker.
      */
     public void openTail(){
         robot.marker.setPosition(OPEN);
     }
 
     /**
-     *
+     * Closes back tail to return tail to original position.
      */
     public void closeTail(){
         robot.marker.setPosition(CLOSED);
