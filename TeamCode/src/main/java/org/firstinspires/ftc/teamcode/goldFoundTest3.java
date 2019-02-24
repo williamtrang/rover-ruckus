@@ -1,3 +1,19 @@
+/**
+ * This program was our first test using DogeCV as our
+ * computer vision system. It eventually grew to
+ * become our first sample autonomous using DogeCV,
+ * and our first dive into sampling and computer
+ * vision as a whole.
+ *
+ * @author  William Trang
+ * @version 2.1
+ * @since   2019-1-2
+ * @see     depotOppCrater
+ * @see     craterDepot
+ * @see     craterNoDepot
+ * @see     autoMethods
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
@@ -5,7 +21,6 @@ import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Disabled
 @Autonomous(name = "gold found test auto", group = "test")

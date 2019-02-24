@@ -1,3 +1,16 @@
+/**
+ * This Hardware class is exclusively used as an object. It
+ * contains all of our motors, servos, and sensors on our
+ * robot, which makes it so our additions to the robot
+ * are simple in the code.
+ *
+ * @author  William Trang
+ * @version 3.3
+ * @since   2018-9-29
+ * @see     autoMethods
+ * @see     slideTest
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -17,7 +30,7 @@ public class Hardware{
     public DcMotor extend = null;                 //motor to extend scoring mechanism
     public Servo marker = null;                   //servo to release marker
     public Servo phone = null;                    //servo to rotate phone
-    public CRServo collect = null;                //servo to run intake system
+    public CRServo collect = null;                //motor to run intake system
     BNO055IMU imu;                                //rev inertial measurement unit for turns
     Orientation angles;
     HardwareMap hwMap = null;                     //hardware map to map devices

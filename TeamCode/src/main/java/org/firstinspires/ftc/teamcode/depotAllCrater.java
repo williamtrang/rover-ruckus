@@ -1,3 +1,17 @@
+/**
+ * This program was very similar to our (@link depotOppCrater)
+ * program, except with the important distinction that it would
+ * park on our alliance's crater rather than our opponents'.
+ * We realzed that this would have no benefits over parking on
+ * the opposing alliance's crater, and thus this was never used.
+ *
+ * @author William Trang
+ * @version 1.0
+ * @since 2019-1-4
+ * @see depotOppCrater
+ * @see autoMethods
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;

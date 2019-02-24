@@ -1,3 +1,15 @@
+/**
+ * The autoMethods abstract class exists to be extended by our autonomous
+ * programs. It contains all of the methods we use during the autonomous
+ * period, which helps clean up our code and facilitates the process
+ * of creating our autonomous programs.
+ *
+ * @author  William Trang
+ * @version 3.1
+ * @since   2018-9-29
+ * @see     Hardware
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;

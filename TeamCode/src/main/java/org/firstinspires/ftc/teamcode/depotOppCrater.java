@@ -1,3 +1,22 @@
+/**
+ * This autonomous program is used on the depot side of the
+ * lander. This program deploys from the lander, samples,
+ * drives back to claim the depot, and parks on the
+ * opposing alliance's crater. We park on the opposing
+ * alliance's crater to be sure to stay out of the way of
+ * our alliance partner. This is our main autonomous program
+ * on the depot side because it scores the full 80 points
+ * in autonomous, and is our most preferred in general because
+ * of its consistency.
+ *
+ * @author  William Trang
+ * @version 3.1
+ * @since   2019-1-4
+ * @see     autoMethods
+ * @see     blueMarker
+ * @see     goldFoundTest3
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
@@ -101,8 +120,7 @@ public class depotOppCrater extends autoMethods {
                 turnRight(32,0.5);
                 encoderDrive(1,25,25);
 
-                /* drop team marker and turn and drive to crater
-                * last drive is slow to avoid going over crater walls */
+                //drop team marker and drive to opponent crater
                 openTail();
                 sleep(700);
                 closeTail();

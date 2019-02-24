@@ -1,3 +1,16 @@
+/**
+ * This program was used to test our first linear slide/intake
+ * design, It had continuous rotation servos for extension on
+ * both sides, motors on both sides to move it up and down,
+ * and a continuous rotation servo for intake. Ultimately,
+ * we ended up not using this design.
+ *
+ * @author     William Trang
+ * @version    1.1
+ * @since      2019-2-16
+ * @deprecated we don't have this attachment anymore
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;

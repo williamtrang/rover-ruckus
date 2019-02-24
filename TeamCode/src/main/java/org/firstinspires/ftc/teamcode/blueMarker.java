@@ -1,8 +1,25 @@
+/**
+ * This program is the original autonomous program we used on
+ * the depot side of the lander. It deploys from the lander,
+ * claims the depot, and parks on our alliance's crater.
+ * Similar to the blueCrater autonomous, we decided to make
+ * a completely new program with the implementation of sampling
+ * to clean up everything, and thus this program became lost
+ * to the test of time.
+ *
+ * @author William Trang
+ * @version 2.0
+ * @since 2018-11-4
+ * @see depotOppCrater
+ * @see autoMethods
+ * @see blueCrater
+ * @deprecated made a new depot autonomous with sampling
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Disabled
 @Autonomous(name = "blue marker test", group = "test")

@@ -1,3 +1,15 @@
+/**
+ * This program is our main teleop. The drivetrain is controlled
+ * by the left and right joystick on gamepad 1, as well as the
+ * linear slide by the triggers of gamepad 1. Gamepad 2 controls
+ * the intake system with the joysticks and triggers as well.
+ *
+ * @author  William Trang
+ * @version 3.1
+ * @since   2018-10-13
+ * @see     Hardware
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -41,14 +53,14 @@ public class slideTest extends OpMode{
 
         //up and down motor controlled by left joystick
         robot.arm.setPower(gamepad2.left_stick_y*0.5);
-        robot.extend.setPower(gamepad2.right_stick_y*0.5);
+        robot.extend.setPower(gamepad2.right_stick_y*0.6);
 
         //control intake
-        if(gamepad2.left_bumper){ //in
-            robot.collect.setPower(0.6);
+        if(gamepad2.left_bumper){ //out
+            robot.collect.setPower(1);
         }
-        else if(gamepad2.left_trigger!=0){ //out
-            robot.collect.setPower(-0.6);
+        else if(gamepad2.left_trigger!=0){ //in
+            robot.collect.setPower(-1);
         }
         else{
             robot.collect.setPower(0);
