@@ -84,7 +84,7 @@ public class DepotSlow extends autoMethods {
                 encoderDrive(0.6,50,50);
 
                 //turn and drive to depot
-                turnLeft(35,35);
+                turnLeft(35,0.3);
                 encoderDrive(0.6,22,22);
 
                 //drop team marker and turn and drive to crater
