@@ -20,7 +20,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.internal.camera.libuvc.nativeobject.UvcDevice;
 
 
 public class Hardware{
@@ -31,6 +33,7 @@ public class Hardware{
     public Servo marker = null;                   //servo to release marker
     public Servo phone = null;                    //servo to rotate phone
     public CRServo collect = null;                //motor to run intake system
+    //public WebcamName camera = null;
     BNO055IMU imu;                                //rev inertial measurement unit for turns
     Orientation angles;
     HardwareMap hwMap = null;                     //hardware map to map devices
@@ -45,6 +48,7 @@ public class Hardware{
         marker = hwMap.get(Servo.class,"marker");
         phone = hwMap.get(Servo.class,"phone");
         collect = hwMap.get(CRServo.class,"collect");
+        //camera = hwMap.get(WebcamName.class,"camera");
         imu = hwMap.get(BNO055IMU.class, "imu");
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
