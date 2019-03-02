@@ -113,7 +113,7 @@ public class DepotSlow extends autoMethods {
             }
             case "RIGHT":{
                 //turn and drive to knock off gold mineral
-                turnLeft(24,0.3);
+                turnLeft(23,0.3);
                 encoderDrive(0.6,40,40);
 
                 //turn and drive to depot
@@ -124,7 +124,7 @@ public class DepotSlow extends autoMethods {
                 openTail();
                 sleep(700);
                 closeTail();
-                turnRight(45,0.3);
+                turnRight(50,0.3);
                 encoderDrive(0.6,-75,-75);
                 break;
             }

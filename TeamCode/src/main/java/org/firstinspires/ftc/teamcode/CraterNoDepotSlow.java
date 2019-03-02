@@ -1,18 +1,16 @@
 /**
  * This autonomous program is used when starting on the crater
- * side of the lander. This program deploys from the lander,
- * samples, drives to the depot to deploy our marker and
- * claims it, and finally partially parks on our alliance's
- * crater. This is the main program we use on the crater side,
- * as it scores the full 80 points in autonomous.
+ * side of the lander. The robot lowers, samples, and parks
+ * on the crater. This program is used when our alliance
+ * partner believes they need the rest of the field
+ * during autonomous.
  *
  * @author  William Trang
- * @version 4.1
+ * @version 2.1
  * @since   2019-1-5
- * @see     craterNoDepot
+ * @see     craterDepot
  * @see     autoMethods
  * @see     blueCrater
- * @see     goldFoundTest3
  */
 
 package org.firstinspires.ftc.teamcode;
@@ -22,13 +20,14 @@ import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "crater slow", group = "pikaReal")
-public class CraterSlow extends autoMethods {
+@Autonomous(name = "crater no depot slow", group = "pikaReal")
+public class CraterNoDepotSlow extends autoMethods {
     private GoldAlignDetector detector = new GoldAlignDetector();
+    private LowerSlide lower = new LowerSlide();
 
     @Override
     public void runOpMode(){
-        String POSITION; //variable to store position of gold mineral
+        String POSITION;
         robot.init(hardwareMap);
 
         // Set up detector
@@ -69,77 +68,42 @@ public class CraterSlow extends autoMethods {
             }
         }
 
-        //lower from lander
+        //lower from lander and lower linear slide
         lowerRobot();
-        encoderDrive(0.6,4,4);
-        sleep(300);
+        encoderDrive(1,4,4);
+        lowerSlide();
 
         //drive differently with different position of mineral
         switch(POSITION){
             case "LEFT":{
                 //turn and drive to knock off gold mineral
                 turnRight(20,0.3);
-                encoderDrive(0.6,30,30);
-                sleep(500);
-                encoderDrive(0.6,-11,-11);
+                encoderDrive(0.6,50,50);
 
-                //turn and drive to depot to release team marker
-                turnLeft(83,0.3);
-                encoderDrive(0.6,95,95);
-                openTail();
-                sleep(700);
-                closeTail();
-
-                //turn and drive to crater
-                turnLeft(129,0.3);
-                timeDrive(-1,1500);
-                encoderDrive(0.6,-80,-80);
+                //turn and drive to park on crater
+                turnLeft(30,0.3);
+                encoderDrive(0.2,8,8);
                 break;
             }
             case "MIDDLE":{
-                //drive to knock off gold mineral
-                encoderDrive(0.6,26,26);
-                sleep(500);
-                encoderDrive(0.6,-10,-10);
-
-                //turn and drive to depot to release team marker
-                turnLeft(74,0.3);
-                encoderDrive(0.6,50,50);
-                turnLeft(95,0.3);
-                encoderDrive(0.6,50,50);
-                openTail();
-                sleep(700);
-                closeTail();
-
-                //turn and drive to crater
-                turnLeft(135,0.3);
-                timeDrive(-1,1250);
-                encoderDrive(0.6,-80,-80);
+                //drive to knock off gold mineral and park on crater
+                encoderDrive(0.2,65,65);
                 break;
             }
             case "RIGHT":{
                 //turn and drive to knock off gold mineral
-                turnLeft(23,0.3);
-                encoderDrive(0.6,32,32);
-                sleep(200);
-                encoderDrive(0.6,-4,-4);
+                turnLeft(24,0.3);
+                encoderDrive(0.6,50,50);
 
-                //turn and drive to depot to release team marker
-                turnLeft(100,0.3);
-                encoderDrive(0.6,75,75);
-                openTail();
-                sleep(700);
-                closeTail();
-
-                //turn and drive to crater
-                turnLeft(130,0.3);
-                timeDrive(-1,1000);
-                encoderDrive(0.6,-70,-70);
+                //turn and drive to park on crater
+                turnRight(30,0.3);
+                encoderDrive(0.2,10,10);
                 break;
             }
         }
 
         detector.disable();
-    }
-}
 
+    }
+
+}

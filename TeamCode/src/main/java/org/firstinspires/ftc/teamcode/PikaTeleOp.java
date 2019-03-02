@@ -12,13 +12,11 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="slide test",group="pikaReal")
-@Disabled
-public class slideTest extends OpMode{
+@TeleOp(name="PikaOp",group="pikaReal")
+public class PikaTeleOp extends OpMode{
     Hardware robot = new Hardware();
     public void init() {
         robot.init(hardwareMap);
@@ -54,8 +52,8 @@ public class slideTest extends OpMode{
         }
 
         //up and down motor controlled by left joystick
-        robot.arm.setPower(gamepad2.left_stick_y*0.5);
-        robot.extend.setPower(gamepad2.right_stick_y*0.6);
+        robot.arm.setPower(-gamepad2.left_stick_y*0.3);
+        robot.extend.setPower(gamepad2.right_stick_y*0.8);
 
         //control intake
         if(gamepad2.left_bumper){ //out
