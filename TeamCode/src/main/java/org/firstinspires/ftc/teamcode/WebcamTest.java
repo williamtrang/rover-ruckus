@@ -43,19 +43,18 @@ public class WebcamTest extends OpMode {
         detector = new SamplingOrderDetector(); // Create the detector
         detector.VUFORIA_KEY = "Ae+/B53/////AAABmUQdCdJ9PkHis/D0Ru+/LklFwpxt5Ti/MlN6RaRRhXrXvkoGW2KbGF//RXsHKReTewf/QW2D8oKoOUuv6yBlgbaygAK1OEkeEoj3ruvjTsLaBilBzofOfuPwuMnKWrePqN/fRIhRV2/OgYJ1d11uJedohdv0iEQ4PG+oHX0KpBDnO4nZOueHtRn3AcQuFduvD2fsIu2W5Dj0avmkc0I049VJysTrBMnHUHwrmpNI2p6mhcw0nxLKXZCCylHSZaC6XcNWBafYlCUh5xykNvwo2C3PQPtR5+HMbR/Q59T+7GErNmewRne4ERzzWpnEy0RjrcW7DrCIURS4YskUG2yyEyj/LIQCB4StdQl3qWHALWwC";
         //detector.init(hardwareMap.appContext, CameraViewDisplay.getInstance(), DogeCV.CameraMode.WEBCAM, false, robot.camera);
-        detector.useDefaults(); // Set detector to use default settings
+        detector.useDefaults();
 
-        detector.downscale = 0.4; // How much to downscale the input frames
+        detector.downscale = 0.4;
         detector.whiteFilter = new LeviColorFilter(LeviColorFilter.ColorPreset.WHITE);
         // Optional tuning
-        detector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA; // Can also be PERFECT_AREA
-        //detector.perfectAreaScorer.perfectArea = 10000; // if using PERFECT_AREA scoring
+        detector.areaScoringMethod = DogeCV.AreaScoringMethod.MAX_AREA;
         detector.maxAreaScorer.weight = 0.001;
 
         detector.ratioScorer.weight = 15;
         detector.ratioScorer.perfectRatio = 1.0;
 
-        detector.enable(); // Start detector
+        detector.enable();
     }
 
     /*

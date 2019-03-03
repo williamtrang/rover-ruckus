@@ -5,8 +5,8 @@
  * the intake system with the joysticks and triggers as well.
  *
  * @author  William Trang
- * @version 3.1
- * @since   2018-10-13
+ * @version 1.1
+ * @since   2019-3-2
  * @see     Hardware
  */
 
@@ -52,7 +52,7 @@ public class PikaTeleOp extends OpMode{
         }
 
         //up and down motor controlled by left joystick
-        robot.arm.setPower(-gamepad2.left_stick_y*0.3);
+        robot.arm.setPower(-gamepad2.left_stick_y*0.5);
         robot.extend.setPower(gamepad2.right_stick_y*0.8);
 
         //control intake

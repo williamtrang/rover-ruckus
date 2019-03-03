@@ -1,18 +1,12 @@
 /**
- * This autonomous program is used when starting on the crater
- * side of the lander. This program deploys from the lander,
- * samples, drives to the depot to deploy our marker and
- * claims it, and finally partially parks on our alliance's
- * crater. This is the main program we use on the crater side,
- * as it scores the full 80 points in autonomous.
+ *
  *
  * @author  William Trang
- * @version 4.1
- * @since   2019-1-5
- * @see     craterNoDepot
+ * @version 1.1
+ * @since   2019-2-24
  * @see     autoMethods
  * @see     blueCrater
- * @see     goldFoundTest3
+ * @see     craterDepot
  */
 
 package org.firstinspires.ftc.teamcode;

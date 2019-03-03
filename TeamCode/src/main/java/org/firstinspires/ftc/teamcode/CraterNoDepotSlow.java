@@ -1,16 +1,11 @@
 /**
- * This autonomous program is used when starting on the crater
- * side of the lander. The robot lowers, samples, and parks
- * on the crater. This program is used when our alliance
- * partner believes they need the rest of the field
- * during autonomous.
+ *
  *
  * @author  William Trang
- * @version 2.1
- * @since   2019-1-5
- * @see     craterDepot
+ * @version 1.0
+ * @since   2019-3-2
+ * @see     Crater Slow
  * @see     autoMethods
- * @see     blueCrater
  */
 
 package org.firstinspires.ftc.teamcode;
