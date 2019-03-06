@@ -51,6 +51,10 @@ public class PikaTeleOp extends OpMode{
             robot.slide.setPower(0);
         }
 
+        if(gamepad1.b){
+            robot.phone.setPosition(0);
+        }
+
         //up and down motor controlled by left joystick
         robot.arm.setPower(-gamepad2.left_stick_y*0.5);
         robot.extend.setPower(gamepad2.right_stick_y*0.8);

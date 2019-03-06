@@ -84,7 +84,8 @@ public class DepotSlow extends autoMethods {
                 sleep(700);
                 closeTail();
                 turnRight(60,0.3);
-                encoderDrive(0.6,-85,-85);
+                encoderDrive(0.6,-82,-82);
+                lowerSlide();
                 break;
             }
             case "MIDDLE":{
@@ -100,7 +101,8 @@ public class DepotSlow extends autoMethods {
                 sleep(300);
 
                 //drive towards crater
-                encoderDrive(0.6,-84,-84);
+                encoderDrive(0.6,-72,-72);
+                lowerSlide();
                 break;
             }
             case "RIGHT":{
@@ -117,7 +119,8 @@ public class DepotSlow extends autoMethods {
                 sleep(700);
                 closeTail();
                 turnRight(50,0.3);
-                encoderDrive(0.6,-75,-75);
+                encoderDrive(0.6,-65,-65);
+                lowerSlide();
                 break;
             }
         }
