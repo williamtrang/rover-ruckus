@@ -87,7 +87,7 @@ public class CraterSlow extends autoMethods {
                 //turn and drive to crater
                 turnLeft(129,0.3);
                 timeDrive(-1,1500);
-                encoderDrive(0.6,-20,-20);
+                encoderDrive(0.6,-17,-17);
                 lowerSlide();
                 break;
             }
@@ -109,7 +109,7 @@ public class CraterSlow extends autoMethods {
                 //turn and drive to crater
                 turnLeft(135,0.3);
                 timeDrive(-1,1250);
-                encoderDrive(0.6,-20,-20);
+                encoderDrive(0.6,-31.5,-31.5);
                 lowerSlide();
                 break;
             }
@@ -130,7 +130,7 @@ public class CraterSlow extends autoMethods {
                 //turn and drive to crater
                 turnLeft(130,0.3);
                 timeDrive(-1,1000);
-                encoderDrive(0.6,-32,-32);
+                encoderDrive(0.6,-32.5,-32.5);
                 lowerSlide();
                 break;
             }
